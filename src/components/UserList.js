@@ -5,7 +5,7 @@ import ReactPaginate from "react-paginate";
 const UserList = () => {
     const [karyawan, setUsers] = useState([]);
     const [page, setPage] = useState(0);
-    const [limit, setLimit] = useState(10);
+    const [limit] = useState(10);
     const [pages, setPages] = useState(0);
     const [rows, setRows] = useState(0);
     const [keyword, setKeyword] = useState("");
@@ -14,6 +14,7 @@ const UserList = () => {
 
     useEffect(() => {
         getUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page, keyword]);
 
     const getUsers = async () => {
