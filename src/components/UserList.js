@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import * as PropTypes from "prop-types";
+import DeleteConfirmation from "./ReusableConfirmationDel";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTrash} from "@fortawesome/free-solid-svg-icons";
+import {Row, Col, Container, Card, Table, Alert} from "react-bootstrap";
+import {type} from "@testing-library/user-event/dist/type";
 
 function Button(props) {
     return null;
@@ -22,13 +27,16 @@ const UserList = () => {
     const [keyword, setKeyword] = useState("");
     const [query, setQuery] = useState("");
     const [msg, setMsg] = useState("");
-    // const [del, setDelete] = useState("");
+    const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
 
     useEffect(() => {
         getUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page, keyword]);
 
+    const showDeleteModal = (type, id) => {
+
+    }
     const getUsers = async () => {
         const response = await axios.get(
             `http://localhost:3000/all-karyawan?search_query=${keyword}&page=${page}&limit=${limit}`
