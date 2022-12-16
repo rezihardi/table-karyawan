@@ -57,12 +57,12 @@ const UserList = () => {
                                     className="input"
                                     value={query}
                                     onChange={(e) => setQuery(e.target.value)}
-                                    placeholder="Find something here..."
+                                    placeholder="cari sesuatu disini"
                                 />
                             </div>
                             <div className="control">
                                 <button type="submit" className="button is-info">
-                                    Search apapun
+                                    Submit search
                                 </button>
                             </div>
                         </div>
