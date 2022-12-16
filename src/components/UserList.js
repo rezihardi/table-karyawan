@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
+import * as PropTypes from "prop-types";
 
+function Button(props) {
+    return null;
+}
+
+Button.propTypes = {
+    onClick: PropTypes.func,
+    size: PropTypes.string,
+    variant: PropTypes.string,
+    children: PropTypes.node
+};
 const UserList = () => {
     const [karyawan, setUsers] = useState([]);
     const [page, setPage] = useState(0);
@@ -11,6 +22,7 @@ const UserList = () => {
     const [keyword, setKeyword] = useState("");
     const [query, setQuery] = useState("");
     const [msg, setMsg] = useState("");
+    // const [del, setDelete] = useState("");
 
     useEffect(() => {
         getUsers();
@@ -26,6 +38,19 @@ const UserList = () => {
         setPages(response.data.data.totalPage);
         setRows(response.data.data.totalRows);
     };
+
+    const deletePost = async (id) => {
+        try {
+            await axios.delete(
+                `http://localhost:3000/delete-by-id/${id}`
+            )
+            getUsers();
+        } catch (e) {
+            console.log(e)
+        }
+        
+
+    }
 
     const changePage = ({ selected }) => {
         setPage(selected);
@@ -73,6 +98,7 @@ const UserList = () => {
                             <th>NIK</th>
                             <th>Alamat</th>
                             <th>Nama</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -81,6 +107,12 @@ const UserList = () => {
                                 <td>{el.nik}</td>
                                 <td>{el.alamat}</td>
                                 <td>{el.nama}</td>
+                                <td className="has-text-centered">
+                                    <button onClick={()=> deletePost(el.nik)}
+                                    className="button is-small is-danger">
+                                        Delete
+                                    </button>
+                                </td>
                             </tr>
                         ))}
                         </tbody>
