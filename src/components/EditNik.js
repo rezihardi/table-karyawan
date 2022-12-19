@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-const EditUser = () => {
+const EditNik = () => {
     const [nama, setNama] = useState("");
     const [alamat, setAlamat] = useState("");
     const navigate = useNavigate();
@@ -71,4 +71,4 @@ const EditUser = () => {
     );
 };
 
-export default EditUser;
+export default EditNik;

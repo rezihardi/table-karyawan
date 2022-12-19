@@ -88,6 +88,9 @@ const UserList = () => {
                             </div>
                         </div>
                     </form>
+                    <Link to={`add`} className="button is-success">
+                        Add Nik Baru
+                    </Link>
                     <table className="table is-striped is-bordered is-fullwidth mt-2">
                         <thead>
                         <tr>
