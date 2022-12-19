@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom"
-// import DeleteConfirmation from "./ReusableConfirmationDel";
-// import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-// import {faTrash} from "@fortawesome/free-solid-svg-icons";
-// import {Row, Col, Container, Card, Table, Alert} from "react-bootstrap";
-// import {type} from "@testing-library/user-event/dist/type";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Modal, Button} from 'react-bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const UserList = () => {
     const [karyawan, setUsers] = useState([]);
@@ -17,7 +15,12 @@ const UserList = () => {
     const [keyword, setKeyword] = useState("");
     const [query, setQuery] = useState("");
     const [msg, setMsg] = useState("");
-    // const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
+    const [show, setShow] = useState(false);
+
+
+    //pop-up
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         getUsers();
@@ -82,9 +85,9 @@ const UserList = () => {
                                 />
                             </div>
                             <div className="control">
-                                <button type="submit" className="button is-info">
+                                <Button type="submit" className="button is-info">
                                     Submit search
-                                </button>
+                                </Button>
                             </div>
                         </div>
                     </form>
@@ -112,10 +115,28 @@ const UserList = () => {
                                           className="button is-small is-info mr-2">
                                         Edit
                                     </Link>
-                                    <button onClick={()=> deletePost(el.nik)}
+                                    <Button onClick={()=> deletePost(el.nik)}
                                     className="button is-small is-danger">
                                         Delete
-                                    </button>
+                                    </Button>
+                                    {/*<Button className="nextButton" onClick={handleShow}>*/}
+                                    {/*    Open Modal*/}
+                                    {/*</Button>*/}
+
+                                    {/*<Modal show={show} onHide={handleClose} size="lg">*/}
+                                    {/*    <Modal.Header closeButton>*/}
+                                    {/*        <Modal.Title>Modal heading</Modal.Title>*/}
+                                    {/*    </Modal.Header>*/}
+                                    {/*    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>*/}
+                                    {/*    <Modal.Footer>*/}
+                                    {/*        <Button variant="secondary" onClick={handleClose}>*/}
+                                    {/*            Close*/}
+                                    {/*        </Button>*/}
+                                    {/*        <Button variant="primary" onClick={handleClose}>*/}
+                                    {/*            Save Changes*/}
+                                    {/*        </Button>*/}
+                                    {/*    </Modal.Footer>*/}
+                                    {/*</Modal>*/}
                                 </td>
                             </tr>
                         ))}

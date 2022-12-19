@@ -3,6 +3,8 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import UserList from "./components/UserList";
 import EditNik from "./components/EditNik";
 import CreateNik from "./components/InsertNik";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
