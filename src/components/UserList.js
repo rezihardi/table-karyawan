@@ -92,8 +92,8 @@ const UserList = () => {
                         <thead>
                         <tr>
                             <th>NIK</th>
-                            <th>Alamat</th>
                             <th>Nama</th>
+                            <th>Alamat</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -101,8 +101,8 @@ const UserList = () => {
                         {karyawan.map((el) => (
                             <tr key={el.nik}>
                                 <td>{el.nik}</td>
-                                <td>{el.alamat}</td>
                                 <td>{el.nama}</td>
+                                <td>{el.alamat}</td>
                                 <td>
                                     <Link to={`edit/${el.nik}`}
                                           className="button is-small is-info mr-2">
