@@ -88,6 +88,7 @@ const UserList = () => {
                             </div>
                         </div>
                     </form>
+                    <br/>
                     <Link to={`add`} className="button is-success">
                         Add Nik Baru
                     </Link>
