@@ -1,11 +1,16 @@
 import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import UserList from "./components/UserList";
+import EditNik from "./components/EditNik";
 
 function App() {
   return (
-      <div>
-        <UserList/>
-      </div>
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<UserList/>}/>
+              <Route path="edit/:nik" element={<EditNik/>}/>
+          </Routes>
+      </BrowserRouter>
   );
 }
 
