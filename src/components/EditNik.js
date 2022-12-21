@@ -9,7 +9,9 @@ const EditNik = () => {
     const { nik } = useParams();
 
     useEffect(() => {
+
         getNikById();
+        // eslint-disable-next-line
     }, []);
 
     const updateUser = async (e) => {

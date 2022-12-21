@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Modal, Button} from 'react-bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const UserList = () => {
     const [karyawan, setUsers] = useState([]);
@@ -15,12 +12,8 @@ const UserList = () => {
     const [keyword, setKeyword] = useState("");
     const [query, setQuery] = useState("");
     const [msg, setMsg] = useState("");
-    const [show, setShow] = useState(false);
 
 
-    //pop-up
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     useEffect(() => {
         getUsers();
@@ -85,19 +78,21 @@ const UserList = () => {
                                 />
                             </div>
                             <div className="control">
-                                <Button type="submit" className="button is-info">
+                                <button type="submit" className="button is-info">
                                     Submit search
-                                </Button>
+                                </button>
                             </div>
                         </div>
                     </form>
                     <br/>
-                    <Link to={`add`} className="button is-success">
+                    <Link to={`add`} className="button is-link">
                         Add Nik Baru
                     </Link>
+
+                    {/*table*/}
                     <table className="table is-striped is-bordered is-fullwidth mt-2">
                         <thead>
-                        <tr>
+                        <tr className="is-selected">
                             <th>NIK</th>
                             <th>Nama</th>
                             <th>Alamat</th>
@@ -115,10 +110,10 @@ const UserList = () => {
                                           className="button is-small is-info mr-2">
                                         Edit
                                     </Link>
-                                    <Button onClick={()=> deletePost(el.nik)}
+                                    <button onClick={()=> deletePost(el.nik)}
                                     className="button is-small is-danger">
                                         Delete
-                                    </Button>
+                                    </button>
                                     {/*<Button className="nextButton" onClick={handleShow}>*/}
                                     {/*    Open Modal*/}
                                     {/*</Button>*/}
@@ -132,8 +127,8 @@ const UserList = () => {
                                     {/*        <Button variant="secondary" onClick={handleClose}>*/}
                                     {/*            Close*/}
                                     {/*        </Button>*/}
-                                    {/*        <Button variant="primary" onClick={handleClose}>*/}
-                                    {/*            Save Changes*/}
+                                    {/*        <Button variant="primary" onClick={()=> deletePost(el.nik)}>*/}
+                                    {/*            Procced Delete*/}
                                     {/*        </Button>*/}
                                     {/*    </Modal.Footer>*/}
                                     {/*</Modal>*/}
@@ -142,6 +137,8 @@ const UserList = () => {
                         ))}
                         </tbody>
                     </table>
+
+                    {/*paging*/}
                     <p>
                         Total Rows: {rows} Page: {rows ? page + 1 : 0} of {pages}
                     </p>
@@ -165,6 +162,10 @@ const UserList = () => {
                             disabledLinkClassName={"pagination-link is-disabled"}
                         />
                     </nav>
+                    <Link to={`/product`}
+                          className="button is-small is-info mr-2">
+                        Go to product
+                    </Link>
                 </div>
             </div>
         </div>
