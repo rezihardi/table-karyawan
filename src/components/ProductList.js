@@ -27,6 +27,7 @@ const ProductList = () => {
             <Link to={`/add-product`} className="button is-success">
                 Add New
             </Link>
+
             <div className="columns is-multiline mt-2">
                 {products.map((product) => (
                     <div className="column is-one-quarter" key={product.name}>
@@ -61,6 +62,11 @@ const ProductList = () => {
                     </div>
                 ))}
             </div>
+            <br/>
+            <br/>
+            <Link to={`/`} className="button is-link">
+                To NIK
+            </Link>
         </div>
     )
 }

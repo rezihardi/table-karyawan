@@ -30,7 +30,6 @@ const EditProduct = () =>{
         e.preventDefault()
         const formData = new FormData();
         formData.append("file", file)
-        console.log(formData)
         try {
             await axios.put(`http://localhost:3000/updateProduct/${name}?title=${title}`, formData,{
                 headers: {
