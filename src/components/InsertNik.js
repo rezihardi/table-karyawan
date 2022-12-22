@@ -6,18 +6,19 @@ const CreateNik = () => {
     // const [nik, setNik] = useState("")
     const [nama, setNama] = useState("")
     const [alamat, setAlamat] = useState("jakarta")
+    const [error, setError] = useState(false)
     const navigate = useNavigate()
 
     const saveNik = async (e) => {
         e.preventDefault()
         try {
             await axios.post(`http://localhost:3000/karyawan`, [{
-              nama,
-              alamat
+                nama, alamat
             }])
             navigate("/")
         } catch (e){
-            console.log(e)
+            console.log('logErr', e.message)
+            setError(true)
         }
     }
 
@@ -68,6 +69,9 @@ const CreateNik = () => {
                             Simpan
                         </button>
                     </div>
+                    {
+                        error && <div style={{color: 'red'}}>an error occurred from the Backend</div>
+                    }
                 </form>
             </div>
         </div>
