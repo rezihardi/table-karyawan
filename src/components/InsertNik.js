@@ -46,7 +46,8 @@ const CreateNik = () => {
                                 className="input"
                                 value={nama}
                                 onChange={(e) => setNama(e.target.value)}
-                                placeholder="Nama"
+                                placeholder="Untari, Rezi, etc.."
+                                required
                             />
                         </div>
                     </div>
