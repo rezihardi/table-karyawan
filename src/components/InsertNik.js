@@ -70,7 +70,7 @@ const CreateNik = () => {
                         </button>
                     </div>
                     {
-                        error && <div style={{color: 'red'}}>an error occurred from the Backend</div>
+                        error && <div style={{color: 'red'}}>an validation occurred from the Backend, check the length of 'nama'</div>
                     }
                 </form>
             </div>
