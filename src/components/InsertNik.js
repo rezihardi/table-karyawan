@@ -8,6 +8,8 @@ const CreateNik = () => {
     const [alamat, setAlamat] = useState("jakarta")
     const [error, setError] = useState(false)
     const navigate = useNavigate()
+    const [message, setMessage] = useState('');
+
 
     const saveNik = async (e) => {
         e.preventDefault()
@@ -20,6 +22,12 @@ const CreateNik = () => {
             console.log('logErr', e.message)
             setError(true)
         }
+    }
+
+    const handleChange = (ev) => {
+        const result = ev.target.value.replace(/[^a-z]/gi, '') //only letter
+
+        setNama(result)
     }
 
     return(
@@ -46,7 +54,7 @@ const CreateNik = () => {
                                 minLength = {7}
                                 className="input"
                                 value={nama}
-                                onChange={(e) => setNama(e.target.value)}
+                                onChange={handleChange}
                                 placeholder="Untari, Rezi, etc.."
                                 required
                             />
