@@ -43,6 +43,7 @@ const CreateNik = () => {
                         <div className="control">
                             <input
                                 type="text"
+                                minLength = {7}
                                 className="input"
                                 value={nama}
                                 onChange={(e) => setNama(e.target.value)}
@@ -71,7 +72,10 @@ const CreateNik = () => {
                         </button>
                     </div>
                     {
-                        error && <div style={{color: 'red'}}>an validation occurred from the Backend, check the length of 'nama'</div>
+                        error && <div className="notification is-danger">
+                        <button  className="delete">tes</button>
+                        an validation occurred
+                        </div>
                     }
                 </form>
             </div>
