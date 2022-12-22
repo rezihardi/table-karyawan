@@ -8,7 +8,6 @@ const CreateNik = () => {
     const [alamat, setAlamat] = useState("jakarta")
     const [error, setError] = useState(false)
     const navigate = useNavigate()
-    const [message, setMessage] = useState('');
 
 
     const saveNik = async (e) => {
@@ -25,8 +24,7 @@ const CreateNik = () => {
     }
 
     const handleChange = (ev) => {
-        const result = ev.target.value.replace(/[^a-z]/gi, '') //only letter
-
+        const result = ev.target.value.replace(/[^a-z ]/gi, '') //only letter and space
         setNama(result)
     }
 
