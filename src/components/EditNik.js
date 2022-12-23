@@ -28,6 +28,11 @@ const EditNik = () => {
         }
     };
 
+    const handleChange = (ev) => {
+        const result = ev.target.value.replace(/[^a-z ]/gi, '') //only letter and space
+        setNama(result)
+    }
+
     const getNikById = async () => {
         const response = await axios.get(`http://localhost:3000/one-karyawan/${nik}`);
         setNama(response.data.data.nama);
@@ -43,10 +48,11 @@ const EditNik = () => {
                         <div className="control">
                             <input
                                 type="text"
+                                minLength={7}
                                 className="input"
                                 value={nama}
-                                onChange={(e) => setNama(e.target.value)}
-                                placeholder="Nama"
+                                onChange={handleChange}
+                                placeholder="Untarizaeca, Etc ...."
                             />
                         </div>
                     </div>
